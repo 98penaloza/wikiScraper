@@ -49,21 +49,3 @@ class Scraper:
 
     def isHeaderHeadlineKey(header: str, headlineId: str):
         return header.lower().replace(" ", "_") == headlineId.lower()
-
-
-if __name__ == "__main__":
-
-    def main():
-        print("Hello World")
-        url = "https://valorant.fandom.com/wiki/Patch_Notes/6.0"
-        page = urlopen(url)
-        # print(page)
-        # print(page.read().decode(Constants.UTF_8))
-        print(
-            BeautifulSoup(page.read().decode(Constants.UTF_8), Constants.HTML_PARSER)
-            .find_all("span", Constants.HEADLINE_ID)[0]
-            .findParent()
-            .findChildren()
-        )
-
-    main()
