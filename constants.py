@@ -31,3 +31,64 @@ class HtmlTags:
     DIV = "div"  ## section in a document that is styled with CSS
     IMG = "img"  ## used to embed an image in an HTML page
     A = "a"  ## defines a hyperlink
+
+
+class Markers:
+    HTML_TO_MARKDOWN_PREFIX: dict[HtmlTags, str] = {
+        HtmlTags.LI: "",
+        HtmlTags.UL: "-",
+        HtmlTags.OL: "1.",
+        HtmlTags.DL: "",
+        HtmlTags.DT: "",
+        HtmlTags.DD: "",
+        HtmlTags.H1: "",
+        HtmlTags.H2: "###",
+        HtmlTags.H3: "####",
+        HtmlTags.H4: "#####",
+        HtmlTags.H5: "######",
+        HtmlTags.H6: "######",
+    }
+    HTML_TO_MARKDOWN_SUFFIX: dict[HtmlTags, str] = {
+        HtmlTags.LI: "",
+        HtmlTags.UL: "",
+        HtmlTags.OL: "",
+        HtmlTags.DL: "",
+        HtmlTags.DT: "",
+        HtmlTags.DD: "",
+        HtmlTags.H1: "",
+        HtmlTags.H2: "",
+        HtmlTags.H3: "",
+        HtmlTags.H4: "",
+        HtmlTags.H5: "",
+        HtmlTags.H6: "",
+        HtmlTags.P: " ",
+        HtmlTags.B: "",
+        HtmlTags.I: "",
+        HtmlTags.SPAN: "",
+        HtmlTags.BR: "",
+        HtmlTags.DIV: "",
+        HtmlTags.IMG: "",
+        HtmlTags.A: "",
+    }
+    HTML_TO_MARKDOWN_INTEXT: dict[HtmlTags, str] = {
+        HtmlTags.LI: "",
+        HtmlTags.UL: "",
+        HtmlTags.OL: "",
+        HtmlTags.DL: "**",
+        HtmlTags.DT: "**",
+        HtmlTags.DD: "",
+        HtmlTags.H1: "",
+        HtmlTags.H2: "",
+        HtmlTags.H3: "",
+        HtmlTags.H4: "",
+        HtmlTags.H5: "",
+        HtmlTags.H6: "",
+        HtmlTags.P: " ",
+        HtmlTags.B: "**",
+        HtmlTags.I: "*",
+        HtmlTags.SPAN: "",
+        HtmlTags.BR: "",
+        HtmlTags.DIV: "",
+        HtmlTags.IMG: "",
+        HtmlTags.A: "",
+    }
