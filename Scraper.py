@@ -5,11 +5,13 @@ from constants import (
     HtmlTags,
     Markers,
 )
+from md2pdfparser import MD2PDFParser
 
 
 class Scraper:
     def __init__(self, rootDir: str):
         self.url = rootDir
+        self.parser = MD2PDFParser()
         pass
 
     def run(
@@ -29,6 +31,7 @@ class Scraper:
     def write(self, content: str, filename: str):
         with open(f"{filename}.md", "w+") as f:
             f.write(content)
+        self.parser.parse(filename, content)
 
     def makePatchPage(
         self,
@@ -62,6 +65,8 @@ class Scraper:
         while temp_headline.name != sectionTag:
             content += self.makePage(temp_headline)
             temp_headline = temp_headline.findNextSibling()
+            if not temp_headline:
+                break
         return content
 
     def makePage(
